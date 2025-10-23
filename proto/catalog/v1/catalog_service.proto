@@ -1,0 +1,45 @@
+// Сервис каталога товаров.
+// Версия: v1
+// Автор Артем Д.
+// Дата 23.10.2025
+
+syntax = "proto3";
+
+package catalog.v1;
+
+option go_package = "github.com/myshop/api/gen/go/catalog/v1;catalogv1";
+
+// Товар в каталоге
+message Product {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    int64 price = 4;
+    string currency_code = 5;
+    bool in_stock = 6;
+}
+
+// Запрос: Получить товар по ID
+message GetProductRequest {
+    string product_id = 1;
+}
+
+// Ответ: Возвращаем товар если он найден
+message GetProductResponse {
+    Product product = 1;
+}
+
+// Запрос: Получить список товаров
+message ListProductsRequest {
+    //пока что пустой
+}
+
+// Ответ: Возвращаем список товаров
+message ListProductsResponse {
+    repeated Product products = 1;
+}
+
+service CatalogService {
+    rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+    rpc ListProducts(ListProductsRequest) returns (ListProductsResponse);
+}

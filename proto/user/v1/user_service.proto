@@ -1,0 +1,46 @@
+// user_service.proto
+// Сервис управления пользователями.
+// Версия: v1
+// Автор: Артем Д.
+// Дата: 22.10.2025
+
+syntax = "proto3";
+
+package user.v1;
+
+option go_package = "github.com/myshop/api/gen/go/user/v1;userv1";
+
+// Пользователь системы
+message User {
+    string id = 1;
+    string email = 2;
+    string name = 3;
+    int64 created_at = 4;
+}
+
+// Запрос на создание пользователя
+message CreateUserRequest {
+    string email = 1;
+    string name = 2;
+}
+
+// Ответ: Возвращаем пользователя
+message CreateUserResponse {
+    User user = 1;
+}
+
+// Запрос на существование пользователя
+message GetUserRequest {
+    string user_id = 1;
+}
+
+// Ответ: Возвращаем пользователя если он найден
+message GetUserResponse {
+    User user = 1;
+}
+
+// Сервис управления пользователями
+service UserService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+    rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}

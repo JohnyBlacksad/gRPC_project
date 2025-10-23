@@ -1,0 +1,37 @@
+// notification_service.proto
+// Сервис отправки уведомлений.
+// Версия: v1
+// Автор: Артем Д.
+// Дата: 2025-04-15
+
+syntax = "proto3";
+
+package notification.v1;
+
+option go_package = "github.com/myshop/api/gen/go/notification/v1;notificationv1";
+
+// Типы уведомлений
+enum NotificationType {
+    NOTIFICATION_TYPE_UNSPECIFIED = 0;
+    NOTIFICATION_TYPE_EMAIL = 1;
+    NOTIFICATION_TYPE_SMS = 2;
+    NOTIFICATION_TYPE_PUSH = 3;
+}
+
+// Запрос: Отправить уведомление о созданном заказе
+message SendNotificationRequest {
+    NotificationType type = 1;
+    string to = 2;
+    string subject = 3;
+    string body = 4;
+}
+
+// Ответ: Подтверждение отправки
+message SendNotificationResponse {
+    bool success = 1;
+}
+
+// Сервис отправки уведомлений
+service NotificationService {
+    rpc SendNotification(SendNotificationRequest) returns (SendNotificationResponse);
+}
