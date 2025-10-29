@@ -16,7 +16,7 @@ message Order {
     string user_id = 2;
 
     enum Status {
-        STATUS_UNSECIFIED = 0;
+        STATUS_UNSPECIFIED = 0;
         STATUS_CREATED = 1;     // Заказ создан
         STATUS_PAID = 2;        // Заказ оплачен
         STATUS_CANCELED = 3;    // Заказ отменен

@@ -19,7 +19,7 @@ from user.v1.user_service_pb2_grpc import (
 # The `Database` class in Python provides methods to initialize a SQLite database, create new user
 # records, and retrieve user information based on user ID.
 class Database:
-    def __init__(self, db_path: str = "user.db"):
+    def __init__(self, db_path: str = "users.db"):
         """
         The function initializes a database connection using the specified path or a default path if
         none is provided.
@@ -206,11 +206,11 @@ def serve():
     """
     The `serve` function sets up a gRPC server for a User Service and starts it on port 50051.
     """
-    db = Database("user.db")
+    db = Database("users.db")
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_UserServiceServicer_to_server(UserService(db), server)
 
-    server.add_insecure_port("[::]50051")
+    server.add_insecure_port("[::]50052")
 
     server.start()
     logging.info('User Service запущен на порту 50051')
