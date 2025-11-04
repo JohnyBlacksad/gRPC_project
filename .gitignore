@@ -177,6 +177,7 @@ pyrightconfig.json
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+.vscode
 
 # Local History for Visual Studio Code
 .history/
@@ -190,6 +191,8 @@ pyrightconfig.json
 .ionide
 
 # other trash
-trash/*
+*trash/*
+
+*.db
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python
