@@ -49,3 +49,13 @@ class GetCartResponse(_message.Message):
     total_amount: int
     currency_code: str
     def __init__(self, items: _Optional[_Iterable[_Union[CartItem, _Mapping]]] = ..., total_amount: _Optional[int] = ..., currency_code: _Optional[str] = ...) -> None: ...
+
+class ClearCartRequset(_message.Message):
+    __slots__ = ("user_id",)
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class ClearCartResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

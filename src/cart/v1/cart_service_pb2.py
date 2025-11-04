@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1a\x63\x61rt/v1/cart_service.proto\x12\x07\x63\x61rt.v1\"l\n\x08\x43\x61rtItem\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x14\n\x0cproduct_name\x18\x02 \x01(\t\x12\x10\n\x08quantity\x18\x03 \x01(\x05\x12\r\n\x05price\x18\x04 \x01(\x03\x12\x15\n\rcurrency_code\x18\x05 \x01(\t\"G\n\x0e\x41\x64\x64ItemRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\nproduct_id\x18\x02 \x01(\t\x12\x10\n\x08quantity\x18\x03 \x01(\x05\"\x11\n\x0f\x41\x64\x64ItemResponse\"!\n\x0eGetCartRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"`\n\x0fGetCartResponse\x12 \n\x05items\x18\x01 \x03(\x0b\x32\x11.cart.v1.CartItem\x12\x14\n\x0ctotal_amount\x18\x02 \x01(\x03\x12\x15\n\rcurrency_code\x18\x03 \x01(\t2\x89\x01\n\x0b\x43\x61rtService\x12<\n\x07\x41\x64\x64Item\x12\x17.cart.v1.AddItemRequest\x1a\x18.cart.v1.AddItemResponse\x12<\n\x07GetCart\x12\x17.cart.v1.GetCartRequest\x1a\x18.cart.v1.GetCartResponseB-Z+github.com/myshop/api/gen/go/cart/v1;cartv1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1a\x63\x61rt/v1/cart_service.proto\x12\x07\x63\x61rt.v1\"l\n\x08\x43\x61rtItem\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x14\n\x0cproduct_name\x18\x02 \x01(\t\x12\x10\n\x08quantity\x18\x03 \x01(\x05\x12\r\n\x05price\x18\x04 \x01(\x03\x12\x15\n\rcurrency_code\x18\x05 \x01(\t\"G\n\x0e\x41\x64\x64ItemRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\nproduct_id\x18\x02 \x01(\t\x12\x10\n\x08quantity\x18\x03 \x01(\x05\"\x11\n\x0f\x41\x64\x64ItemResponse\"!\n\x0eGetCartRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"`\n\x0fGetCartResponse\x12 \n\x05items\x18\x01 \x03(\x0b\x32\x11.cart.v1.CartItem\x12\x14\n\x0ctotal_amount\x18\x02 \x01(\x03\x12\x15\n\rcurrency_code\x18\x03 \x01(\t\"#\n\x10\x43learCartRequset\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"\x13\n\x11\x43learCartResponse2\xcd\x01\n\x0b\x43\x61rtService\x12<\n\x07\x41\x64\x64Item\x12\x17.cart.v1.AddItemRequest\x1a\x18.cart.v1.AddItemResponse\x12<\n\x07GetCart\x12\x17.cart.v1.GetCartRequest\x1a\x18.cart.v1.GetCartResponse\x12\x42\n\tClearCart\x12\x19.cart.v1.ClearCartRequset\x1a\x1a.cart.v1.ClearCartResponseB-Z+github.com/myshop/api/gen/go/cart/v1;cartv1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,6 +42,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_GETCARTREQUEST']._serialized_end=274
   _globals['_GETCARTRESPONSE']._serialized_start=276
   _globals['_GETCARTRESPONSE']._serialized_end=372
-  _globals['_CARTSERVICE']._serialized_start=375
-  _globals['_CARTSERVICE']._serialized_end=512
+  _globals['_CLEARCARTREQUSET']._serialized_start=374
+  _globals['_CLEARCARTREQUSET']._serialized_end=409
+  _globals['_CLEARCARTRESPONSE']._serialized_start=411
+  _globals['_CLEARCARTRESPONSE']._serialized_end=430
+  _globals['_CARTSERVICE']._serialized_start=433
+  _globals['_CARTSERVICE']._serialized_end=638
 # @@protoc_insertion_point(module_scope)

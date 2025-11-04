@@ -43,8 +43,17 @@ message GetCartResponse {
     string currency_code = 3;
 }
 
+message ClearCartRequset{
+    string user_id = 1;
+}
+
+message ClearCartResponse {
+
+}
+
 // Сервис управления корзиной покупателя
 service CartService {
     rpc AddItem(AddItemRequest) returns (AddItemResponse);
     rpc GetCart(GetCartRequest) returns (GetCartResponse);
+    rpc ClearCart(ClearCartRequset) returns (ClearCartResponse);
 }
