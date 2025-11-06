@@ -277,9 +277,9 @@ def serve():
     db = Database('order.db')
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_OrderServiceServicer_to_server(OrderService(db), server)
-    server.add_insecure_port('[::]:50054')
+    server.add_insecure_port('[::]:10054')
     server.start()
-    logging.info('Order Service запущен на порту 50054')
+    logging.info('Order Service запущен на порту 10054')
     server.wait_for_termination()
 
 if __name__ == "__main__":

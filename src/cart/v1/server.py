@@ -236,9 +236,9 @@ def serve():
     db = Database("cart.db")
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_CartServiceServicer_to_server(CartService(db), server)
-    server.add_insecure_port("[::]50053")
+    server.add_insecure_port("[::]:10053")
     server.start()
-    logging.info('Cart Service запущен на порту 50053')
+    logging.info('Cart Service запущен на порту 10053')
     server.wait_for_termination()
 
 if __name__ == "__main__":

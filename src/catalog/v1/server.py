@@ -193,16 +193,16 @@ class CatalogService(CatalogServiceServicer):
 
 def serve():
     """
-    The `serve` function starts a gRPC server for a Catalog Service on port 50051.
+    The `serve` function starts a gRPC server for a Catalog Service on port 10051.
     """
     db = Database('catalog.db')
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_CatalogServiceServicer_to_server(CatalogService(db), server)
-    server.add_insecure_port("[::]:50051")
+    server.add_insecure_port("[::]:10051")
 
     server.start()
-    logging.info("Catalog Service запущен на порту 50051")
+    logging.info("Catalog Service запущен на порту 10051")
 
     server.wait_for_termination()
 

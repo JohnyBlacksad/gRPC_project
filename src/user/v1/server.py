@@ -42,7 +42,7 @@ class Database:
         try:
             conn.execute(
                 """
-                    CREATE TABLE IF NOT EXISTS user (
+                    CREATE TABLE IF NOT EXISTS users (
                         id TEXT PRIMARY KEY,
                         email TEXT NOT NULL UNIQUE,
                         name TEXT,
@@ -189,8 +189,9 @@ class UserService(UserServiceServicer):
         """
 
         row = self.db.get_user(request.user_id)
+
         if row is None:
-            context.abort(grpc.StatusCode.NOT_FOUND, 'Пользователь не найден')
+            context.abort(grpc.StatusCode.NOT_FOUND, "Пользователь не найден")
 
         user = User(
             id = row[0],
@@ -204,16 +205,16 @@ class UserService(UserServiceServicer):
 
 def serve():
     """
-    The `serve` function sets up a gRPC server for a User Service and starts it on port 50051.
+    The `serve` function sets up a gRPC server for a User Service and starts it on port 10052.
     """
-    db = Database("users.db")
+    db = Database("user.db")
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_UserServiceServicer_to_server(UserService(db), server)
 
-    server.add_insecure_port("[::]50052")
+    server.add_insecure_port("[::]:10052")
 
     server.start()
-    logging.info('User Service запущен на порту 50051')
+    logging.info('User Service запущен на порту 10052')
 
     server.wait_for_termination()
 

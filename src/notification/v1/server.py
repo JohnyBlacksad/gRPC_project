@@ -138,15 +138,15 @@ class NotificationService(NotificationServiceServicer):
 
 def serve():
     """
-    The `serve` function sets up a gRPC server for a Notification Service on port 50055.
+    The `serve` function sets up a gRPC server for a Notification Service on port 10055.
     """
 
     db = Database('notification.db')
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_NotificationServiceServicer_to_server(NotificationService(db), server)
-    server.add_insecure_port('[::]:50055')
+    server.add_insecure_port('[::]:10055')
     server.start()
-    logging.info('Notification Service запущен на порту 50055')
+    logging.info('Notification Service запущен на порту 10055')
     server.wait_for_termination()
 
 if __name__ == '__main__':
