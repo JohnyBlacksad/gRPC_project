@@ -88,7 +88,7 @@ class UserResponseJSON(BaseModel):
     id: str
     email: str
     name: str
-    created_at: str
+    created_at: int
 
 
 
@@ -386,13 +386,6 @@ def create_order(payload: CreateOrderJSON):
             - 404 (Not Found), если пользователь/корзина не найдены.
             - 400 (Bad Request) при нарушении бизнес-правил (например, пустая корзина).
             - 500 (Internal Server Error) при системных сбоях.
-
-    Note:
-        В коде есть **ошибка**: `status_str` вычисляется, но не используется — `order.status`
-        передаётся как `int`, а в `OrderResponseJSON.status` ожидается `str`.
-
-        Исправление:
-            status=status_str  # вместо status=order.status
     """
 
     stub = get_order_stub()

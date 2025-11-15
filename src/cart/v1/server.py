@@ -11,6 +11,8 @@ from cart.v1.cart_service_pb2 import (
     AddItemResponse,
     GetCartRequest,
     GetCartResponse,
+    ClearCartRequset,
+    ClearCartResponse,
 )
 
 from cart.v1.cart_service_pb2_grpc import (
@@ -227,6 +229,10 @@ class CartService(CartServiceServicer):
             total_amount=total_amount,
             currency_code=currency_code
         )
+
+    def ClearCart(self, request: ClearCartRequset, context):
+        self.db.clear_cart(request.user_id)
+        return ClearCartResponse()
 
 
 def serve():
